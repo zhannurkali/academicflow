@@ -14,7 +14,7 @@ Deadline: 4 days total. Day 4 includes a live demo on JupyterHub where we run `p
 5. Teamwork: regular small commits from every member, PRs reviewed by teammates.
 
 ## Hard technical rules
-- Python >= 3.9. Use `from __future__ import annotations` in every module.
+- Python >= 3.10. Use `from __future__ import annotations` in every module.
 - Base dependencies ONLY: pybtex, pyyaml, ipython, nbformat, numpy, pypandoc_binary, python-docx. Do not add any other runtime dependency without a PR approved by Member 5.
 - Optional extras: [nlp] = spacy; [llm] = openai. Code must work without them (import them lazily inside functions, fall back gracefully).
 - NO runtime downloads (no nltk.download, no spacy model download, no fetching CSL files). Bundle any word lists or data as package files under the module's `data/` folder and load them with importlib.resources.
@@ -38,7 +38,7 @@ src/academicflow/
 tests/                 # one test file per module
 examples/              # 01_quickstart.ipynb, 02_full_paper_workflow.ipynb, refs.bib, sample_draft.md
 docs/ + mkdocs.yml     # one page per module, written by its owner
-.github/workflows/     # test.yml (pytest on 3.9-3.12), publish.yml (trusted publishing on tag v*), docs.yml
+.github/workflows/     # test.yml (pytest on 3.10-3.13), publish.yml (trusted publishing on tag v*), docs.yml
 ```
 
 ## Shared types (src/academicflow/types.py)

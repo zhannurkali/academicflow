@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = "An academic-writing pipeline for Jupyter: text analysis, style checks, BibTeX citations (APA/IEEE/Nature), abstract generation, and LaTeX/Word export."
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 # TODO(member 5): replace with the five members' real names
 authors = [
     { name = "Member 1" },
@@ -26,10 +26,10 @@ classifiers = [
     "Intended Audience :: Education",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Text Processing :: Linguistic",
     "Topic :: Text Processing :: Markup :: LaTeX",
 ]
@@ -70,7 +70,7 @@ testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py39"
+target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B"]
