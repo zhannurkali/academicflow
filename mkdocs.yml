@@ -1,0 +1,33 @@
+site_name: academicflow
+site_description: Academic writing pipeline for Jupyter notebooks
+site_url: https://zhannurkali.github.io/academicflow/
+repo_url: https://github.com/zhannurkali/academicflow
+repo_name: zhannurkali/academicflow
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - content.code.copy
+  palette:
+    - scheme: default
+      toggle: { icon: material/brightness-7, name: Dark mode }
+    - scheme: slate
+      toggle: { icon: material/brightness-4, name: Light mode }
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - tables
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Modules:
+      - Text analysis: core.md
+      - Style checker: style.md
+      - Citations: cite.md
+      - Abstract generator: summarize.md
+      - Jupyter magics: magics.md
+      - Export: export.md
