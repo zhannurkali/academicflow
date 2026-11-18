@@ -1,7 +1,4 @@
-"""Style checker: informal language, repetition, terminology consistency, section rules.
-
-Owner: Member 2.
-"""
+"""Style checker: venue profiles, section-aware rules, and document consistency."""
 
 from __future__ import annotations
 

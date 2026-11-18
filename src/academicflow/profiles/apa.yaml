@@ -1,11 +1,10 @@
-# APA 7 profile. TODO(member 2): complete section_rules.
+# Practical APA-inspired defaults. These are editable heuristics, not a full APA manual.
 name: apa
 citation_style: apa
 allow_first_person: true
 allow_contractions: false
 max_sentence_words: 40
 abstract_max_words: 250
-preferred_spelling: us
 section_rules:
   abstract:
     max_words: 250
@@ -14,4 +13,7 @@ section_rules:
     tense: past
   results:
     tense: past
+  conclusion:
+    forbid_citations: false
+preferred_spelling: us
 disabled_rules: []
