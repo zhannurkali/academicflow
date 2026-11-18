@@ -461,6 +461,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract generator
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -477,6 +495,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-a-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In a notebook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-extractive-method-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the extractive method works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-backend-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM backend (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -566,6 +658,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-a-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In a notebook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-extractive-method-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the extractive method works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-backend-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM backend (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -585,7 +740,121 @@
 
 
 <h1 id="abstract-generator-academicflowsummarize">Abstract generator (<code>academicflow.summarize</code>)</h1>
-<p><em>Owner: Member 5. TODO: extractive method, LLM backend configuration (OpenAI / Ollama).</em></p>
+<p>Generate a summary of any text, or a full abstract from a paper's sections. The default
+method is <strong>extractive TextRank</strong>: it runs offline, needs no API key and gives the same
+result every time. An optional <strong>LLM backend</strong> writes new sentences instead, and falls
+back to TextRank automatically if anything goes wrong.</p>
+<h2 id="in-a-notebook">In a notebook</h2>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">academicflow</span>
+
+<span class="o">%%</span><span class="n">academic</span> <span class="o">--</span><span class="n">section</span><span class="o">=</span><span class="n">introduction</span>
+<span class="o">...</span>
+
+<span class="o">%</span><span class="n">aabstract</span>              <span class="c1"># TextRank abstract, 200 words</span>
+<span class="o">%</span><span class="n">aabstract</span> <span class="o">--</span><span class="n">words</span><span class="o">=</span><span class="mi">150</span>  <span class="c1"># shorter</span>
+<span class="o">%</span><span class="n">aabstract</span> <span class="o">--</span><span class="n">llm</span>        <span class="c1"># LLM abstract (see configuration below)</span>
+</code></pre></div>
+<h2 id="from-python">From Python</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">academicflow.summarize</span><span class="w"> </span><span class="kn">import</span> <span class="n">summarize</span><span class="p">,</span> <span class="n">generate_abstract</span>
+
+<span class="n">summarize</span><span class="p">(</span><span class="n">long_text</span><span class="p">,</span> <span class="n">max_words</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">generate_abstract</span><span class="p">({</span>
+    <span class="s2">"1. Introduction"</span><span class="p">:</span> <span class="s2">"..."</span><span class="p">,</span>
+    <span class="s2">"2. Materials and Methods"</span><span class="p">:</span> <span class="s2">"..."</span><span class="p">,</span>
+    <span class="s2">"Results"</span><span class="p">:</span> <span class="s2">"..."</span><span class="p">,</span>
+    <span class="s2">"Conclusion"</span><span class="p">:</span> <span class="s2">"..."</span><span class="p">,</span>
+<span class="p">},</span> <span class="n">max_words</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="how-the-extractive-method-works">How the extractive method works</h2>
+<ol>
+<li>The text is split into sentences, and each sentence becomes a TF-IDF vector (stopwords removed).</li>
+<li>Sentences are linked by cosine similarity, and <strong>PageRank</strong> scores how central each sentence is.</li>
+<li>Sentences in the first or last 20% of the text get a small boost (×1.15), as do sentences
+   containing the text's top keywords (×1.10).</li>
+<li>The best sentences that fit in <code>max_words</code> are returned <strong>in their original order</strong>.</li>
+</ol>
+<p><code>generate_abstract</code> is section-aware. It takes up to two of the best sentences from the
+introduction, methods, results and conclusion, in that order, and shares the word budget
+between the sections that exist. Section names are normalised:</p>
+<table>
+<thead>
+<tr>
+<th>You write</th>
+<th>Treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Introduction, Background, Motivation</td>
+<td>introduction</td>
+</tr>
+<tr>
+<td>Methods, Methodology, Materials and Methods, Approach, Experiments</td>
+<td>methods</td>
+</tr>
+<tr>
+<td>Results, Evaluation, Findings</td>
+<td>results</td>
+</tr>
+<tr>
+<td>Conclusion, Discussion, Summary, Future work</td>
+<td>conclusion</td>
+</tr>
+</tbody>
+</table>
+<p>Numbering such as <code>2.</code> or <code>III.</code> is ignored, and any existing <code>Abstract</code> section is skipped.
+If none of the four standard sections exist, the whole text is summarised.</p>
+<h2 id="llm-backend-optional">LLM backend (optional)</h2>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"academicflow[llm]"</span>
+</code></pre></div>
+<p>Any OpenAI-compatible API works. Configure it with environment variables or with
+arguments (<code>model=</code>, <code>base_url=</code>, <code>api_key=</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ACADEMICFLOW_LLM_MODEL</code></td>
+<td>Model name (required)</td>
+<td><code>llama3.2</code></td>
+</tr>
+<tr>
+<td><code>ACADEMICFLOW_LLM_BASE_URL</code></td>
+<td>API URL; leave unset for OpenAI</td>
+<td><code>http://localhost:11434/v1</code></td>
+</tr>
+<tr>
+<td><code>OPENAI_API_KEY</code></td>
+<td>API key; not needed for local servers</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Local and free, with Ollama:</strong></p>
+<div class="highlight"><pre><span></span><code>ollama<span class="w"> </span>pull<span class="w"> </span>llama3.2
+<span class="nb">export</span><span class="w"> </span><span class="nv">ACADEMICFLOW_LLM_MODEL</span><span class="o">=</span>llama3.2
+<span class="nb">export</span><span class="w"> </span><span class="nv">ACADEMICFLOW_LLM_BASE_URL</span><span class="o">=</span>http://localhost:11434/v1
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"llm"</span><span class="p">)</span>
+<span class="n">generate_abstract</span><span class="p">(</span><span class="n">sections</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"llm"</span><span class="p">)</span>
+</code></pre></div>
+<p>The model is told to use only facts from the text and never to invent results or
+citations. Answers longer than <code>max_words</code> are cut at a sentence boundary.</p>
+<p>If the <code>openai</code> package, the model name or the key is missing, or the request fails, you
+get one warning and the TextRank result instead, so a demo never breaks.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Extractive summaries reuse the author's sentences, so they can read less smoothly than
+  a hand-written abstract.</li>
+<li>Sentence splitting quality depends on <code>academicflow.core.split_sentences</code>.</li>
+<li>LLM output should always be checked by the authors before submission.</li>
+</ul>
 
 
 
