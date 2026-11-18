@@ -1,0 +1,13 @@
+# IEEE profile. TODO(member 2): complete section_rules.
+name: ieee
+citation_style: ieee
+allow_first_person: true
+allow_contractions: false
+max_sentence_words: 35
+abstract_max_words: 250
+preferred_spelling: us
+section_rules:
+  abstract:
+    max_words: 250
+    forbid_citations: true
+disabled_rules: []

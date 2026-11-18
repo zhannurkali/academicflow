@@ -1,0 +1,13 @@
+# Nature profile. TODO(member 2): complete section_rules.
+name: nature
+citation_style: nature
+allow_first_person: true
+allow_contractions: false
+max_sentence_words: 35
+abstract_max_words: 200
+preferred_spelling: uk
+section_rules:
+  abstract:
+    max_words: 200
+    forbid_citations: true
+disabled_rules: []

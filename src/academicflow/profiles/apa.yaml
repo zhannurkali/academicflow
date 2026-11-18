@@ -1,0 +1,17 @@
+# APA 7 profile. TODO(member 2): complete section_rules.
+name: apa
+citation_style: apa
+allow_first_person: true
+allow_contractions: false
+max_sentence_words: 40
+abstract_max_words: 250
+preferred_spelling: us
+section_rules:
+  abstract:
+    max_words: 250
+    forbid_citations: true
+  methods:
+    tense: past
+  results:
+    tense: past
+disabled_rules: []
