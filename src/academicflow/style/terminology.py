@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import re
 from collections import Counter, defaultdict
+from collections.abc import Iterable
 from dataclasses import dataclass
-from typing import Iterable
 
 from academicflow.style.profiles import load_profile
-from academicflow.style.rules import check, normalize_section_name
+from academicflow.style.rules import check
 from academicflow.types import Issue
 
 
@@ -123,9 +123,9 @@ def _collect_group_occurrences(
 ) -> list[_Occurrence]:
     """Find occurrences of any explicit spelling variant in all sections."""
     found: list[_Occurrence] = []
-    patterns = [(variant, _compile_phrase(variant)) for variant in variants]
+    patterns = [_compile_phrase(variant) for variant in variants]
     for section, text in sections.items():
-        for variant, pattern in patterns:
+        for pattern in patterns:
             for match in pattern.finditer(text):
                 found.append(_Occurrence(match.group(0), match.start(), match.end(), section))
     return found

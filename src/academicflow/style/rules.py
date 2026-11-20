@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import re
+from collections.abc import Callable
 from functools import lru_cache
 from importlib import resources
-from typing import Any, Callable
+from typing import Any
 
 import yaml
 

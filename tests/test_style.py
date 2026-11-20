@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import pytest
+
 from academicflow.style import check, check_document, load_profile
 from academicflow.style.rules import normalize_section_name
 from academicflow.style.terminology import _matching_long_form
