@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#style-checker-academicflowstyle" class="md-skip">
+        <a href="#style-checker-and-venue-profiles" class="md-skip">
           Skip to content
         </a>
       
@@ -405,6 +405,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Style checker
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -421,6 +439,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in profiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-aware-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section-aware checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-document-terminology-and-acronyms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-document terminology and acronyms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom profile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -566,6 +691,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in profiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-aware-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section-aware checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-document-terminology-and-acronyms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-document terminology and acronyms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom profile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -584,8 +805,275 @@
   
 
 
-<h1 id="style-checker-academicflowstyle">Style checker (<code>academicflow.style</code>)</h1>
-<p><em>Owner: Member 2. TODO: rule table, custom profile YAML, example output.</em></p>
+<h1 id="style-checker-and-venue-profiles">Style checker and venue profiles</h1>
+<p><code>academicflow.style</code> reviews academic prose at three levels: individual wording,
+section-specific expectations, and consistency across an entire multi-section paper.</p>
+<p>The checks are deterministic, work offline, and do not require NLTK, spaCy, an LLM,
+or any model download. They are heuristic writing aids rather than substitutes for
+the target journal's current author instructions or a human editor. In particular,
+verb-tense detection and acronym recognition are intentionally rule-based and can
+produce false positives or miss unusual constructions.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">academicflow.style</span><span class="w"> </span><span class="kn">import</span> <span class="n">check</span><span class="p">,</span> <span class="n">check_document</span><span class="p">,</span> <span class="n">load_profile</span>
+
+<span class="n">profile</span> <span class="o">=</span> <span class="n">load_profile</span><span class="p">(</span><span class="s2">"nature"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">profile</span><span class="p">[</span><span class="s2">"abstract_max_words"</span><span class="p">])</span>  <span class="c1"># 200</span>
+
+<span class="n">issues</span> <span class="o">=</span> <span class="n">check</span><span class="p">(</span>
+    <span class="s2">"We use a lot of data in this study."</span><span class="p">,</span>
+    <span class="n">profile</span><span class="o">=</span><span class="s2">"apa"</span><span class="p">,</span>
+    <span class="n">section</span><span class="o">=</span><span class="s2">"2. Methods"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">issues</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">issue</span><span class="o">.</span><span class="n">rule</span><span class="p">,</span> <span class="n">issue</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="n">issue</span><span class="o">.</span><span class="n">suggestion</span><span class="p">)</span>
+
+<span class="n">paper</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Introduction"</span><span class="p">:</span> <span class="s2">"The dataset contains public records."</span><span class="p">,</span>
+    <span class="s2">"Methods"</span><span class="p">:</span> <span class="s2">"The data set was filtered before analysis."</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">check_document</span><span class="p">(</span><span class="n">paper</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">"apa"</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">issue</span><span class="o">.</span><span class="n">section</span><span class="p">,</span> <span class="n">issue</span><span class="o">.</span><span class="n">rule</span><span class="p">,</span> <span class="n">issue</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">issue</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">issue</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div>
+<p>Each result is an <code>academicflow.types.Issue</code>. <code>start</code> is inclusive and <code>end</code> is
+exclusive; both are character offsets into the original text of the reported section.</p>
+<h2 id="rules">Rules</h2>
+<table>
+<thead>
+<tr>
+<th>Rule ID</th>
+<th>What it flags</th>
+<th style="text-align: right;">Severity</th>
+<th>Profile-dependent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>informal-word</code></td>
+<td>Informal or imprecise words and phrases from the bundled YAML dictionary</td>
+<td style="text-align: right;">warning</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>contraction</code></td>
+<td>English contractions such as <code>don't</code> and <code>isn't</code></td>
+<td style="text-align: right;">warning</td>
+<td>Yes: <code>allow_contractions</code></td>
+</tr>
+<tr>
+<td><code>first-person</code></td>
+<td><code>I</code>, <code>we</code>, <code>our</code>, or <code>us</code></td>
+<td style="text-align: right;">info</td>
+<td>Yes: <code>allow_first_person</code></td>
+</tr>
+<tr>
+<td><code>long-sentence</code></td>
+<td>Sentence exceeding <code>max_sentence_words</code></td>
+<td style="text-align: right;">warning</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>repeated-word</code></td>
+<td>Adjacent duplicate words such as <code>the the</code></td>
+<td style="text-align: right;">warning</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>repeated-phrase</code></td>
+<td>A repeated 3–5-word phrase used at least three times</td>
+<td style="text-align: right;">warning</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>weasel-word</code></td>
+<td>Vague emphasis or hedge expressions such as <code>obviously</code> and <code>very</code></td>
+<td style="text-align: right;">info</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>abstract-length</code></td>
+<td>Abstract longer than the configured word limit</td>
+<td style="text-align: right;">warning</td>
+<td>Yes: <code>abstract_max_words</code> / section setting</td>
+</tr>
+<tr>
+<td><code>citation-in-abstract</code></td>
+<td>Pandoc-style <code>[@key]</code> citation in an abstract that forbids citations</td>
+<td style="text-align: right;">warning</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>tense-inconsistency</code></td>
+<td>Recognisable present-tense patterns in a section configured for past tense</td>
+<td style="text-align: right;">info</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>term-inconsistency</code></td>
+<td>Mixed spelling, hyphenation, spacing, or capitalisation across the document</td>
+<td style="text-align: right;">warning</td>
+<td>Yes: preferred spelling breaks ties</td>
+</tr>
+<tr>
+<td><code>acronym-undefined</code></td>
+<td>Acronym used before a matching <code>Long Form (LF)</code> definition, or never defined</td>
+<td style="text-align: right;">warning</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>acronym-redefined</code></td>
+<td>The same acronym is defined more than once</td>
+<td style="text-align: right;">warning</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>acronym-unused</code></td>
+<td>Acronym has fewer than two uses after its definition</td>
+<td style="text-align: right;">info</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Rules can be disabled by their IDs using the <code>disabled_rules</code> list in a profile.</p>
+<h2 id="built-in-profiles">Built-in profiles</h2>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th style="text-align: right;">APA-inspired</th>
+<th style="text-align: right;">IEEE-inspired</th>
+<th style="text-align: right;">Nature-inspired</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>citation_style</code></td>
+<td style="text-align: right;"><code>apa</code></td>
+<td style="text-align: right;"><code>ieee</code></td>
+<td style="text-align: right;"><code>nature</code></td>
+</tr>
+<tr>
+<td><code>allow_first_person</code></td>
+<td style="text-align: right;">true</td>
+<td style="text-align: right;">true</td>
+<td style="text-align: right;">false</td>
+</tr>
+<tr>
+<td><code>allow_contractions</code></td>
+<td style="text-align: right;">false</td>
+<td style="text-align: right;">false</td>
+<td style="text-align: right;">false</td>
+</tr>
+<tr>
+<td><code>max_sentence_words</code></td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr>
+<td><code>abstract_max_words</code></td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr>
+<td><code>preferred_spelling</code></td>
+<td style="text-align: right;">US</td>
+<td style="text-align: right;">US</td>
+<td style="text-align: right;">UK</td>
+</tr>
+<tr>
+<td>Abstract citations</td>
+<td style="text-align: right;">discouraged</td>
+<td style="text-align: right;">discouraged</td>
+<td style="text-align: right;">discouraged</td>
+</tr>
+<tr>
+<td>Methods / Results tense</td>
+<td style="text-align: right;">past heuristic</td>
+<td style="text-align: right;">past heuristic</td>
+<td style="text-align: right;">past heuristic</td>
+</tr>
+</tbody>
+</table>
+<p>These profiles are practical presets for a student project. They are not complete,
+authoritative reproductions of the APA, IEEE, or Nature editorial manuals. Journals
+within the same publisher can differ, and the journal's live instructions take priority.</p>
+<h2 id="section-aware-checks">Section-aware checks</h2>
+<p>Section headings are case-insensitive, numbered prefixes are removed, and common
+synonyms are normalised. For example:</p>
+<ul>
+<li><code>2. Methods</code>, <code>Methodology</code>, and <code>Materials and Methods</code> become <code>methods</code>.</li>
+<li><code>Summary</code> becomes <code>abstract</code>.</li>
+<li><code>Conclusions</code> and <code>Concluding Remarks</code> become <code>conclusion</code>.</li>
+<li><code>Discussion</code> remains distinct from <code>Conclusion</code>.</li>
+</ul>
+<p>The abstract rule uses the section's <code>max_words</code> when provided, otherwise the
+profile-level <code>abstract_max_words</code>. Citation checks search for the notebook citation
+syntax <code>[@key]</code>. Past-tense checks use conservative lexical patterns such as
+<code>we use</code> and <code>is measured</code>; they are not a full grammatical parser.</p>
+<h2 id="cross-document-terminology-and-acronyms">Cross-document terminology and acronyms</h2>
+<p><code>check_document</code> walks sections in insertion order, checks each section individually,
+then checks the document-wide terminology and acronym state. It currently recognises
+common space/hyphen/joined variants (including <code>data set</code>, <code>data-set</code>, and <code>dataset</code>),
+more than 80 US/UK spelling pairs, and mid-sentence lower/title-case variants.</p>
+<p>Acronym definitions are recognised in the form <code>Long Form (LF)</code>. Connecting words
+such as <code>of</code>, <code>and</code>, <code>the</code>, and <code>for</code> are ignored when matching initials. Acronym
+checks are deliberately simple: unusual abbreviations, pluralised acronyms, or
+long forms with non-standard initials may need manual review.</p>
+<h2 id="custom-profile">Custom profile</h2>
+<p>Create a YAML file, for example <code>my-journal.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-journal</span>
+<span class="nt">citation_style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apa</span>
+<span class="nt">allow_first_person</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">allow_contractions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">max_sentence_words</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32</span>
+<span class="nt">abstract_max_words</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">180</span>
+<span class="nt">preferred_spelling</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uk</span>
+<span class="nt">disabled_rules</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">weasel-word</span>
+<span class="nt">section_rules</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">abstract</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">max_words</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">180</span>
+<span class="w">    </span><span class="nt">forbid_citations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">methods</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tense</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">past</span>
+<span class="w">  </span><span class="nt">results</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tense</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">past</span>
+<span class="w">  </span><span class="nt">discussion</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tense</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">any</span>
+</code></pre></div>
+<p>Load it by path:</p>
+<div class="highlight"><pre><span></span><code><span class="n">profile</span> <span class="o">=</span> <span class="n">load_profile</span><span class="p">(</span><span class="s2">"my-journal.yaml"</span><span class="p">)</span>
+<span class="n">issues</span> <span class="o">=</span> <span class="n">check</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">"my-journal.yaml"</span><span class="p">,</span> <span class="n">section</span><span class="o">=</span><span class="s2">"Methods"</span><span class="p">)</span>
+</code></pre></div>
+<p>Supported top-level keys are <code>name</code>, <code>citation_style</code>, <code>allow_first_person</code>,
+<code>allow_contractions</code>, <code>max_sentence_words</code>, <code>abstract_max_words</code>, <code>section_rules</code>,
+<code>preferred_spelling</code>, and <code>disabled_rules</code>. Section settings support <code>max_words</code>,
+<code>forbid_citations</code>, and <code>tense</code> (<code>past</code> or <code>any</code>). Missing values are
+filled from the defaults; unknown or invalid values raise a descriptive <code>ValueError</code>.</p>
+<h2 id="example-output">Example output</h2>
+<p>For:</p>
+<div class="highlight"><pre><span></span><code>We use a lot of data. The dataset was really big. The the results are shown.
+</code></pre></div>
+<p>A typical APA-inspired check can report:</p>
+<div class="highlight"><pre><span></span><code>informal-word    'a lot of' and 'big'
+repeated-word    second occurrence of 'the'
+weasel-word      'really'
+</code></pre></div>
+<p>Actual issue offsets always refer to the exact input string. Suggested replacements
+are not applied automatically: context determines the academically appropriate wording.</p>
+<h2 id="known-limitations">Known limitations</h2>
+<ul>
+<li>Informal-word and hedge dictionaries are English-language heuristics.</li>
+<li>Sentence splitting and tokenisation are delegated to <code>academicflow.core</code>; their
+  accuracy improves as Member 1's implementation matures.</li>
+<li>Passive/active voice and tense are not inferred with a complete syntactic parser.</li>
+<li>Cross-document spelling groups are curated, not exhaustive.</li>
+<li>Acronym matching is based on initials and does not understand every domain-specific
+  convention.</li>
+<li>A single unusual capitalisation may be intentional (for example, a brand or a
+  software library); review suggestions before changing a manuscript.</li>
+</ul>
 
 
 
