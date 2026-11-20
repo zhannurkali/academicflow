@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#export-academicflowexport" class="md-skip">
+        <a href="#export" class="md-skip">
           Skip to content
         </a>
       
@@ -515,6 +515,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Export
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -531,6 +549,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-document-contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the document contains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-without-jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export without Jupyter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -564,6 +645,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-document-contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the document contains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-without-jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export without Jupyter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -582,8 +715,63 @@
   
 
 
-<h1 id="export-academicflowexport">Export (<code>academicflow.export</code>)</h1>
-<p><em>Owner: Member 4. TODO: DOCX, LaTeX and Markdown export, <code>export_notebook</code> from the command line.</em></p>
+<h1 id="export">Export</h1>
+<p>One command turns the notebook session into a finished manuscript with formatted citations and
+a reference list.</p>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">aexport</span> <span class="n">paper</span><span class="o">.</span><span class="n">docx</span>     <span class="c1"># Word</span>
+<span class="o">%</span><span class="n">aexport</span> <span class="n">paper</span><span class="o">.</span><span class="n">tex</span>      <span class="c1"># LaTeX</span>
+<span class="o">%</span><span class="n">aexport</span> <span class="n">paper</span><span class="o">.</span><span class="n">md</span>       <span class="c1"># Markdown</span>
+</code></pre></div>
+<p>Or from Python:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">academicflow.export</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_document</span><span class="p">,</span> <span class="n">export_notebook</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">academicflow.magics.session</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_session</span>
+
+<span class="n">export_document</span><span class="p">(</span><span class="n">get_session</span><span class="p">(),</span> <span class="s2">"paper.docx"</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"docx"</span><span class="p">)</span>   <span class="c1"># "docx" | "latex" | "md"</span>
+</code></pre></div>
+<h2 id="what-the-document-contains">What the document contains</h2>
+<ol>
+<li>Title and authors (if set with <code>%%academic --title</code>)</li>
+<li>Abstract (from <code>%aabstract</code> or an <code>abstract</code> section)</li>
+<li>Sections in the order you wrote them, each with a heading</li>
+<li>A <strong>References</strong> list in the chosen style</li>
+</ol>
+<p>Sections named <code>section-&lt;n&gt;</code> (the automatic names) get no heading.</p>
+<p>Citations are rendered in one pass over the whole paper, so IEEE and Nature number references in
+order of first appearance across all sections.</p>
+<h2 id="formats">Formats</h2>
+<p><strong>DOCX.</strong> Built with <code>pypandoc</code> (bundled pandoc). The reference document sets Times New Roman,
+12 pt, 1.5 line spacing. To use your own styles, place a <code>reference.docx</code> in
+<code>academicflow/export/templates/</code>. If pandoc fails, a simpler python-docx version is written and a
+warning is shown.</p>
+<p><strong>LaTeX.</strong> The body is converted with pandoc and placed in <code>templates/article.tex</code>
+(<code>article</code> class, title, author, abstract environment, sections). APA gets a hanging-indent
+reference section, IEEE and Nature get <code>thebibliography</code>. The <code>.tex</code> file is written without TeX
+installed, and compiles with <code>pdflatex</code>.</p>
+<p><strong>Markdown.</strong> Plain markdown. Nature citations use <code>&lt;sup&gt;n&lt;/sup&gt;</code>.</p>
+<h2 id="export-without-jupyter">Export without Jupyter</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">academicflow.export</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_notebook</span>
+
+<span class="n">export_notebook</span><span class="p">(</span><span class="s2">"paper.ipynb"</span><span class="p">,</span> <span class="s2">"paper.docx"</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"docx"</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"apa"</span><span class="p">,</span> <span class="n">bib_path</span><span class="o">=</span><span class="s2">"refs.bib"</span><span class="p">)</span>
+</code></pre></div>
+<p>or from a terminal:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>academicflow.export<span class="w"> </span>paper.ipynb<span class="w"> </span>paper.docx<span class="w"> </span>--style<span class="o">=</span>ieee<span class="w"> </span>--bib<span class="w"> </span>refs.bib
+</code></pre></div>
+<p>The notebook is read like this:</p>
+<ul>
+<li>Cells starting with <code>%%academic</code> are used. <code>--section</code>, <code>--title</code>, <code>--authors</code> and <code>--style</code> are
+  honoured.</li>
+<li>If there are none, all markdown cells are used: the first <code># Heading</code> is the title and <code>##</code>
+  headings name the sections.</li>
+<li>The bibliography is <code>bib_path</code>, or the first <code>%acite PATH</code> found in the notebook.</li>
+<li>A <code>style</code> argument other than <code>"apa"</code> overrides <code>--style</code> in the cells.</li>
+</ul>
+<h2 id="known-limitations">Known limitations</h2>
+<ul>
+<li>The pandoc-based DOCX uses pandoc's styles for headings and the title block, adjusted to Times
+  New Roman. Journal-specific templates need a custom <code>reference.docx</code>.</li>
+<li>Figures and tables in cells are passed through pandoc but are not specially numbered.</li>
+<li>The python-docx fallback supports bold, italic and superscripts only.</li>
+</ul>
 
 
 

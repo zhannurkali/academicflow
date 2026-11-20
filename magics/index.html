@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jupyter-magics-academicflowmagics" class="md-skip">
+        <a href="#jupyter-magics" class="md-skip">
           Skip to content
         </a>
       
@@ -489,6 +489,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jupyter magics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -505,6 +523,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %acite
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#academic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %%academic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#astats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %astats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %acheck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aabstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %aabstract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aexport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %aexport
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screenshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screenshots
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -566,6 +691,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %acite
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#academic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %%academic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#astats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %astats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %acheck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aabstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %aabstract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aexport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        %aexport
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screenshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screenshots
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -584,8 +805,116 @@
   
 
 
-<h1 id="jupyter-magics-academicflowmagics">Jupyter magics (<code>academicflow.magics</code>)</h1>
-<p><em>Owner: Member 4. TODO: every magic with its options and example output.</em></p>
+<h1 id="jupyter-magics">Jupyter magics</h1>
+<p><code>academicflow</code> adds six magics that turn a notebook into a paper-writing workspace. They keep
+one shared <strong>session</strong> (venue profile, bibliography, sections, title, authors, abstract) and
+call the other modules: <code>core</code>, <code>style</code>, <code>cite</code>, <code>summarize</code> and <code>export</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">academicflow</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Magic</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%acite refs.bib</code></td>
+<td>Load a BibTeX file into the session</td>
+</tr>
+<tr>
+<td><code>%%academic</code></td>
+<td>Render, store and check one section</td>
+</tr>
+<tr>
+<td><code>%astats [section]</code></td>
+<td>Statistics table, keywords, highlighted passive voice</td>
+</tr>
+<tr>
+<td><code>%acheck</code></td>
+<td>Whole-document style check + citation integrity</td>
+</tr>
+<tr>
+<td><code>%aabstract [--words=200] [--llm]</code></td>
+<td>Generate and store the abstract</td>
+</tr>
+<tr>
+<td><code>%aexport paper.docx</code></td>
+<td>Export to DOCX, LaTeX or Markdown</td>
+</tr>
+</tbody>
+</table>
+<p>Every magic accepts <code>--debug</code>. Without it, errors appear as a short red message instead of a
+traceback.</p>
+<h2 id="acite"><code>%acite</code></h2>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">acite</span> <span class="n">refs</span><span class="o">.</span><span class="n">bib</span>
+<span class="c1"># Loaded 12 references from refs.bib</span>
+</code></pre></div>
+<h2 id="academic"><code>%%academic</code></h2>
+<div class="highlight"><pre><span></span><code>%%academic --style=apa --section=introduction
+Transformers [@vaswani2017] changed machine translation.
+</code></pre></div>
+<p>Options:</p>
+<ul>
+<li><code>--style=apa|ieee|nature</code> (or a path to a custom profile YAML) sets the venue profile for the
+  whole session. It persists for later cells.</li>
+<li><code>--section=NAME</code> names the section. Without it the cell is called <code>section-&lt;n&gt;</code>.</li>
+<li><code>--no-check</code> hides the style-issue panel.</li>
+<li><code>--title</code> marks the cell as the title block (see below).</li>
+</ul>
+<p>The cell output shows the text with formatted citations, the references cited <strong>in this cell</strong>,
+and a collapsible panel of style issues with severity colours. Re-running a cell with the same
+<code>--section</code> replaces the section and keeps its position. Auto-named cells are matched by their
+exact text, so give edited cells a <code>--section</code> name.</p>
+<p>If the text has <code>[@key]</code> citations and no bibliography is loaded, a hint asks you to run
+<code>%acite</code>.</p>
+<p>Title and authors:</p>
+<div class="highlight"><pre><span></span><code>%%academic --title
+Effects of Sleep on Memory
+Ada Lovelace
+Alan Turing
+</code></pre></div>
+<p>The first line is the title, each further line is one author. <code>--authors="A; B"</code> also works.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Numbered styles (IEEE, Nature) number references per cell in the cell output. The exported
+document numbers them across the whole paper, by order of first appearance.</p>
+</div>
+<h2 id="astats"><code>%astats</code></h2>
+<p><code>%astats introduction</code> shows the statistics for one section. <code>%astats</code> alone covers the whole
+document (without the abstract). The output has word count, sentence count, reading time,
+readability scores, average sentence length, passive ratio, top keywords and the text with
+passive-voice phrases highlighted.</p>
+<h2 id="acheck"><code>%acheck</code></h2>
+<p>Runs <code>style.check_document</code> for the stored sections and <code>cite.check_integrity</code> for the full text.
+Issues are grouped by section with counts per severity. Citation problems are assigned to the
+section where the citation occurs. Problems without a position (for example an unused
+bibliography entry) appear under <strong>Document / bibliography</strong>. A clean paper prints
+"No issues found".</p>
+<p>Switching <code>--style=apa</code> to <code>--style=nature</code> in a later <code>%%academic</code> cell changes which rules and
+limits apply to the next <code>%acheck</code>.</p>
+<h2 id="aabstract"><code>%aabstract</code></h2>
+<p>Builds the abstract from all sections except <code>abstract</code> and stores it as <code>session.abstract</code> and
+as the <code>abstract</code> section. <code>--words</code> sets the maximum length. <code>--llm</code> uses the optional LLM
+backend and falls back to the extractive summarizer when it is unavailable.</p>
+<h2 id="aexport"><code>%aexport</code></h2>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">aexport</span> <span class="n">paper</span><span class="o">.</span><span class="n">docx</span>
+<span class="o">%</span><span class="n">aexport</span> <span class="n">paper</span><span class="o">.</span><span class="n">tex</span>
+<span class="o">%</span><span class="n">aexport</span> <span class="n">notes</span><span class="o">.</span><span class="n">md</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">md</span>
+</code></pre></div>
+<p>The format comes from the extension unless <code>--format</code> is given. The magic prints the absolute
+path and shows a download link. See <a href="../export/">Export</a>.</p>
+<h2 id="session-api">Session API</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">academicflow.magics.session</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_session</span><span class="p">,</span> <span class="n">reset_session</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="n">get_session</span><span class="p">()</span>
+<span class="n">session</span><span class="o">.</span><span class="n">sections</span>      <span class="c1"># ordered dict: name -&gt; markdown</span>
+<span class="n">reset_session</span><span class="p">()</span>       <span class="c1"># start a new paper</span>
+</code></pre></div>
+<h2 id="screenshots">Screenshots</h2>
+<p>Add screenshots of <code>%%academic</code> output, <code>%astats</code> and <code>%acheck</code> here after the Day 3 demo run
+(<code>docs/img/</code>).</p>
 
 
 
