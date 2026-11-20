@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import pytest
+
 from academicflow.core import analyze, split_sentences, tokenize
+from academicflow.core.readability import basic_counts, count_syllables, readability
 from academicflow.core.text import strip_markdown
 from academicflow.types import TextStats
 
@@ -60,6 +63,11 @@ def test_split_empty() -> None:
     assert split_sentences("  \n ") == []
 
 
+def test_split_sentences_offsets() -> None:
+    text = "One. Two."
+    assert split_sentences(text) == [(0, 4), (5, 9)]
+
+
 def test_tokenize_hyphen_digits() -> None:
     assert tokenize("State-of-the-art models improved COVID-19 detection.") == [
         "state-of-the-art",
@@ -87,6 +95,10 @@ def test_tokenize_decimal_and_empty() -> None:
     assert tokenize("") == []
 
 
+def test_tokenize_drops_citations() -> None:
+    assert tokenize("Water boils [@smith2020].") == ["water", "boils"]
+
+
 def test_strip_markdown() -> None:
     assert strip_markdown("# Title\n- **bold** item") == "Title\nbold item"
     assert strip_markdown("See [the docs](http://x.org) now") == "See the docs now"
@@ -96,16 +108,83 @@ def test_strip_markdown() -> None:
     assert strip_markdown("") == ""
 
 
-def test_split_sentences_offsets():
-    text = "First sentence. Second one!"
-    assert [text[s:e] for s, e in split_sentences(text)] == ["First sentence.", "Second one!"]
+@pytest.mark.parametrize(
+    ("word", "expected"),
+    [
+        ("the", 1),
+        ("make", 1),
+        ("table", 2),
+        ("because", 2),
+        ("analysed", 3),
+        ("reading", 2),
+        ("research", 2),
+        ("paper", 2),
+        ("samples", 2),
+        ("hypothesis", 4),
+        ("significant", 4),
+        ("analysis", 4),
+        ("methodology", 5),
+        ("science", 2),
+        ("queue", 1),
+        ("state-of-the-art", 4),
+        ("covid-19", 2),
+        ("", 0),
+        ("123", 0),
+    ],
+)
+def test_count_syllables(word: str, expected: int) -> None:
+    assert count_syllables(word) == expected
 
 
-def test_tokenize_drops_citations():
-    assert tokenize("Results improved [@smith2020].") == ["results", "improved"]
+def test_readability_known_passage() -> None:
+    result = readability("The cat sat on the mat.")
+    assert result["flesch_reading_ease"] == pytest.approx(116.145, abs=0.01)
+    assert result["flesch_kincaid_grade"] == pytest.approx(-1.45, abs=0.01)
 
 
-def test_analyze_empty_text():
-    stats = analyze("")
+def test_readability_harder_text_scores_lower() -> None:
+    easy = readability("The cat sat on the mat. The dog ran to the park.")
+    hard = readability(
+        "Methodological considerations notwithstanding, interdisciplinary investigations "
+        "necessitate comprehensive epistemological frameworks."
+    )
+    assert hard["flesch_reading_ease"] < easy["flesch_reading_ease"]
+    assert hard["flesch_kincaid_grade"] > easy["flesch_kincaid_grade"]
+
+
+def test_readability_empty() -> None:
+    assert readability("") == {"flesch_reading_ease": 0.0, "flesch_kincaid_grade": 0.0}
+
+
+def test_basic_counts() -> None:
+    counts = basic_counts("The cat sat on the mat. It was happy.")
+    assert counts["word_count"] == 9
+    assert counts["sentence_count"] == 2
+    assert counts["avg_sentence_length"] == pytest.approx(4.5)
+    assert counts["reading_time_min"] == pytest.approx(9 / 238)
+
+
+def test_basic_counts_empty() -> None:
+    assert basic_counts("") == {
+        "word_count": 0,
+        "sentence_count": 0,
+        "avg_sentence_length": 0.0,
+        "reading_time_min": 0.0,
+    }
+
+
+def test_analyze_basic() -> None:
+    stats = analyze("The cat sat on the mat. It was happy.")
     assert isinstance(stats, TextStats)
+    assert stats.word_count == 9
+    assert stats.sentence_count == 2
+    assert stats.reading_time_min == pytest.approx(9 / 238)
+
+
+def test_analyze_empty_text() -> None:
+    stats = analyze("")
     assert stats.word_count == 0
+    assert stats.sentence_count == 0
+    assert stats.reading_time_min == 0.0
+    assert stats.keywords == []
+    assert stats.passive_ratio == 0.0
