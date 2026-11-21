@@ -221,3 +221,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# macOS Finder files
+.DS_Store
+
+# Files produced by running the example notebooks
+examples/paper.*

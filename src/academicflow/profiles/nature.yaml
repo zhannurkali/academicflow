@@ -1,13 +1,19 @@
-# Nature profile. TODO(member 2): complete section_rules.
+# Practical Nature-inspired defaults. Always check the target journal's current author guide.
 name: nature
 citation_style: nature
-allow_first_person: true
+allow_first_person: false
 allow_contractions: false
 max_sentence_words: 35
 abstract_max_words: 200
-preferred_spelling: uk
 section_rules:
   abstract:
     max_words: 200
     forbid_citations: true
+  methods:
+    tense: past
+  results:
+    tense: past
+  conclusion:
+    forbid_citations: false
+preferred_spelling: uk
 disabled_rules: []
