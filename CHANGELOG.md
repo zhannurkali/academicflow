@@ -4,6 +4,25 @@ All notable changes to this project are documented here. Versions follow [Semant
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-21
+
+Every module from the project plan is complete.
+
+### Added
+- **Style checker** (`academicflow.style`, #4): informal words, contractions, first person,
+  long sentences, repeated words and phrases, hedge words, section-aware rules (abstract
+  length, citations in the abstract, tense in methods and results), and cross-section
+  checks: terminology consistency (*data set* / *dataset*) and acronym rules.
+- **Venue profiles** (#4): APA, IEEE and Nature YAML presets, plus custom profile files.
+- **Citations** (#3, #12): reference formatting for conference papers, books and misc
+  entries; `find_citations()`; inline citations in APA (author-date), IEEE (numbered) and
+  Nature (superscript); integrity checks for missing keys (with "did you mean"), unused
+  entries, duplicate DOIs and incomplete entries.
+- **Text analysis** (#9, #10, #11, #13): Flesch reading ease and Flesch-Kincaid grade,
+  RAKE-style keyword extraction, passive-voice detection, and both shown by `%astats`.
+- **Docs**: pages for the core, style, citation, magics and export modules.
+
+
 ## [0.2.0] - 2026-11-20
 
 First public release.
