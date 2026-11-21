@@ -261,3 +261,9 @@ def test_analyze_uses_keywords_and_passive() -> None:
     stats = analyze("The samples were analysed. Deep learning is useful. Deep learning is fast.")
     assert stats.keywords[0][0] == "deep learning"
     assert stats.passive_ratio == pytest.approx(1 / 3)
+
+
+def test_extract_keywords_ignores_filler_words() -> None:
+    assert extract_keywords("Basically, this is a really simple pipeline.") == [
+        ("simple pipeline", 1.0)
+    ]
