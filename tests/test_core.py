@@ -3,10 +3,10 @@ from __future__ import annotations
 import pytest
 
 from academicflow.core import analyze, split_sentences, tokenize
+from academicflow.core.keywords import extract_keywords
 from academicflow.core.readability import basic_counts, count_syllables, readability
 from academicflow.core.text import strip_markdown
 from academicflow.types import TextStats
-from academicflow.core.keywords import extract_keywords
 
 
 def _sents(text: str) -> list[str]:
