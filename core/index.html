@@ -377,6 +377,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Text analysis
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -393,6 +411,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentences-and-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentences and tokens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Readability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keywords
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passive-voice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passive voice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#empty-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Empty input
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -566,6 +691,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentences-and-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentences and tokens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Readability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keywords
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passive-voice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passive voice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#empty-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Empty input
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -585,7 +806,127 @@
 
 
 <h1 id="text-analysis-academicflowcore">Text analysis (<code>academicflow.core</code>)</h1>
-<p><em>Owner: Member 1. TODO: functions, examples with output, known limitations.</em></p>
+<p>The core module turns raw text (plain or Markdown) into numbers and highlights: sentences,
+tokens, readability, keywords and passive voice. It needs no internet, no API key and no
+downloaded data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">academicflow.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">analyze</span><span class="p">,</span> <span class="n">detect_passive</span>
+</code></pre></div>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>split_sentences(text)</code></td>
+<td>Returns <code>(start, end)</code> character offsets of each sentence.</td>
+</tr>
+<tr>
+<td><code>tokenize(text)</code></td>
+<td>Returns lowercase word tokens.</td>
+</tr>
+<tr>
+<td><code>strip_markdown(text)</code></td>
+<td>Removes Markdown, code and LaTeX syntax.</td>
+</tr>
+<tr>
+<td><code>count_syllables(word)</code></td>
+<td>Estimates syllables in one word.</td>
+</tr>
+<tr>
+<td><code>readability(text)</code></td>
+<td>Flesch Reading Ease and Flesch-Kincaid Grade.</td>
+</tr>
+<tr>
+<td><code>basic_counts(text)</code></td>
+<td>Word count, sentence count, average sentence length, reading time.</td>
+</tr>
+<tr>
+<td><code>extract_keywords(text, top_n=10)</code></td>
+<td>RAKE-style keyword phrases, scores 0-1.</td>
+</tr>
+<tr>
+<td><code>detect_passive(text)</code></td>
+<td>Passive-voice constructions as <code>Issue</code> objects.</td>
+</tr>
+<tr>
+<td><code>passive_ratio(text)</code></td>
+<td>Share of sentences that contain a passive construction.</td>
+</tr>
+<tr>
+<td><code>analyze(text)</code></td>
+<td>Everything above in one <code>TextStats</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sentences-and-tokens">Sentences and tokens</h2>
+<p><code>split_sentences</code> does not split after <code>e.g.</code>, <code>i.e.</code>, <code>et al.</code>, <code>Fig.</code>, <code>Eq.</code>, <code>Dr.</code>, <code>vs.</code>,
+inside decimals such as <code>3.14</code>, or inside <code>[@key]</code> citations. Headings and blank lines
+always end a sentence.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="s2">"We did this, e.g. twice. It worked."</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">e</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">split_sentences</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span>
+<span class="p">[</span><span class="s1">'We did this, e.g. twice.'</span><span class="p">,</span> <span class="s1">'It worked.'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tokenize</span><span class="p">(</span><span class="s2">"COVID-19 results [@smith2020] improved."</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">'covid-19'</span><span class="p">,</span> <span class="s1">'results'</span><span class="p">,</span> <span class="s1">'improved'</span><span class="p">]</span>
+</code></pre></div>
+<p>Hyphenated words and words with digits stay whole. Citations, Markdown syntax, inline code
+and <code>$...$</code> math are ignored when counting.</p>
+<h2 id="readability">Readability</h2>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">readability</span><span class="p">(</span><span class="s2">"The cat sat on the mat."</span><span class="p">)[</span><span class="s2">"flesch_kincaid_grade"</span><span class="p">]</span>
+<span class="o">-</span><span class="mf">1.45</span>
+</code></pre></div>
+<p>Both formulas are the standard Flesch formulas. Syllables are counted with a heuristic
+(vowel groups, silent final e, <code>-le</code> endings, small exceptions table).
+Reading time uses 238 words per minute.</p>
+<h2 id="keywords">Keywords</h2>
+<p>Keywords are scored with RAKE: the text is split into phrases (1-3 words) at stopwords
+and punctuation, and each phrase is scored from its words. Scores are normalised so the
+best phrase is 1.0. The result is deterministic.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">extract_keywords</span><span class="p">(</span><span class="s2">"Deep learning is a method. Deep learning is useful."</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">[(</span><span class="s1">'deep learning'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]</span>
+</code></pre></div>
+<h2 id="passive-voice">Passive voice</h2>
+<p>A form of "to be" (optionally after has/have/will/can..., optionally followed by an
+adverb) plus a past participle (regular <code>-ed</code> or a bundled list of irregular participles).
+If spaCy and <code>en_core_web_sm</code> are installed, dependency labels are used instead. This is
+detected automatically and falls back silently.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">issue</span> <span class="o">=</span> <span class="n">detect_passive</span><span class="p">(</span><span class="s2">"The samples were analysed."</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">issue</span><span class="o">.</span><span class="n">message</span>
+<span class="s1">'Passive voice: "were analysed".'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">issue</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">issue</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</code></pre></div>
+<p><code>start</code> and <code>end</code> are offsets in the text you passed in, so they can be used for
+highlighting.</p>
+<h2 id="full-example">Full example</h2>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"Transformers changed NLP [@vaswani2017]. The models were trained on large corpora. "</span>
+<span class="o">...</span>      <span class="s2">"It has been shown that attention improves translation quality. "</span>
+<span class="o">...</span>      <span class="s2">"We evaluated the results on three benchmarks."</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">analyze</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">TextStats</span><span class="p">(</span><span class="n">word_count</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">sentence_count</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">reading_time_min</span><span class="o">=</span><span class="mf">0.1092436974789916</span><span class="p">,</span>
+<span class="n">flesch_reading_ease</span><span class="o">=</span><span class="mf">60.32</span><span class="p">,</span> <span class="n">flesch_kincaid_grade</span><span class="o">=</span><span class="mf">6.46</span><span class="p">,</span> <span class="n">avg_sentence_length</span><span class="o">=</span><span class="mf">6.5</span><span class="p">,</span>
+<span class="n">keywords</span><span class="o">=</span><span class="p">[(</span><span class="s1">'attention improves translation'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">'transformers changed nlp'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">'large corpora'</span><span class="p">,</span> <span class="mf">0.4444</span><span class="p">),</span> <span class="p">(</span><span class="s1">'three benchmarks'</span><span class="p">,</span> <span class="mf">0.4444</span><span class="p">),</span> <span class="p">(</span><span class="s1">'evaluated'</span><span class="p">,</span> <span class="mf">0.1111</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">'models'</span><span class="p">,</span> <span class="mf">0.1111</span><span class="p">),</span> <span class="p">(</span><span class="s1">'quality'</span><span class="p">,</span> <span class="mf">0.1111</span><span class="p">),</span> <span class="p">(</span><span class="s1">'trained'</span><span class="p">,</span> <span class="mf">0.1111</span><span class="p">)],</span> <span class="n">passive_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="empty-input">Empty input</h2>
+<p>Every function accepts an empty string and returns zeros or an empty list.</p>
+<h2 id="known-limitations">Known limitations</h2>
+<ul>
+<li><strong>Passive voice:</strong> adjectival participles ("is interested", "was located") are flagged as
+  passive. Participles shorter than 5 letters ending in <code>-ed</code> are only found if they are
+  in the irregular list. Passive detection with spaCy is more accurate but optional.</li>
+<li><strong>Keywords:</strong> there is no part-of-speech tagging, so verbs can appear inside key
+  phrases ("improves translation"). Single words that occur once score low.</li>
+<li><strong>Sentences:</strong> a single capital letter followed by a dot is treated as an initial
+  (<code>J. Smith</code>), so <code>Plan B. We ...</code> is not split.</li>
+<li><strong>Syllables:</strong> a heuristic, not a dictionary. Rare words can be off by one, which moves
+  the readability scores slightly.</li>
+<li><strong>English only.</strong></li>
+</ul>
 
 
 
