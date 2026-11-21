@@ -3,6 +3,7 @@
 | File | What it shows |
 | --- | --- |
 | `01_quickstart.ipynb` | Every feature through the Python API, in a few cells |
+| `03_one_minute_demo.ipynb` | The one-minute presentation version: install, write, check, export |
 | `02_full_paper_workflow.ipynb` | The full demo: write a paper with magics, check it, generate an abstract, export it |
 | `sample_draft.md` | The same paper as plain Markdown, for tests and scripts |
 | `refs.bib` | Bibliography used by both notebooks |
