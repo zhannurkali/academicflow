@@ -4,6 +4,19 @@ All notable changes to this project are documented here. Versions follow [Semant
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-11-21
+
+### Documentation
+- Motivation, innovation and example use cases on the docs home page and in the README
+  (shown on PyPI).
+- New "Use cases" page with four step-by-step examples.
+- Full citation guide: syntax, the three styles side by side, `render()` targets and the
+  integrity checks.
+- Screenshots of the magics and the exported Word document (#16).
+
+### Fixed
+- `python -m academicflow.export` failed with a circular import (#16).
+
 ## [1.0.0] - 2026-11-21
 
 Every module from the project plan is complete.

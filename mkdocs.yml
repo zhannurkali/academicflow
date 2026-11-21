@@ -24,6 +24,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting started: getting-started.md
+  - Use cases: use-cases.md
   - Modules:
       - Text analysis: core.md
       - Style checker: style.md
