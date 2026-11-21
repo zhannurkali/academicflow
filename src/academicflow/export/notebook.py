@@ -4,9 +4,10 @@ from __future__ import annotations
 import os
 import re
 import shlex
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-from academicflow.magics.session import Session
+if TYPE_CHECKING:
+    from academicflow.magics.session import Session
 
 _ACITE = re.compile(r"^%acite\s+(\S+)", re.MULTILINE)
 _HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*#*\s*$")
@@ -76,9 +77,12 @@ def session_from_notebook(nb_path: str, style: str = "apa", bib_path: str | None
     """
     import nbformat
 
+    # imported here, not at the top: magics.magics imports this module (circular otherwise)
+    from academicflow.magics.session import Session as SessionClass
+
     nb = nbformat.read(nb_path, as_version=4)
     nb_dir = os.path.dirname(os.path.abspath(nb_path))
-    session = Session(profile=style)
+    session = SessionClass(profile=style)
     cell_style: str | None = None
     found_academic = False
     detected_bib: str | None = None

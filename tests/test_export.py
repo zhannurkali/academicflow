@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
+import sys
 
 import pytest
 
@@ -204,3 +206,8 @@ def test_export_notebook_empty_raises(tmp_path):
     _write_notebook(nb, [("code", "print(1)")])
     with pytest.raises(ValueError):
         export_notebook(str(nb), str(tmp_path / "o.md"), "md")
+
+
+def test_export_notebook_module_imports_in_a_fresh_interpreter():
+    code = "import academicflow.export.notebook as n; assert n.session_from_notebook"
+    subprocess.run([sys.executable, "-c", code], check=True)
