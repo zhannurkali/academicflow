@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import re
 
+from academicflow.core.keywords import extract_keywords
+from academicflow.core.passive import passive_ratio
 from academicflow.core.text import split_sentences, tokenize
 from academicflow.types import TextStats
 
@@ -125,8 +127,7 @@ def basic_counts(text: str) -> dict[str, float]:
 def analyze(text: str) -> TextStats:
     """Combine all text metrics into one TextStats object.
 
-    Keywords and passive ratio are placeholders until the keywords and passive modules
-    are implemented (Day 2).
+    Keywords come from extract_keywords and passive_ratio from detect_passive.
 
     Args:
         text: Plain or Markdown text.
@@ -149,8 +150,8 @@ def analyze(text: str) -> TextStats:
         flesch_reading_ease=scores["flesch_reading_ease"],
         flesch_kincaid_grade=scores["flesch_kincaid_grade"],
         avg_sentence_length=counts["avg_sentence_length"],
-        keywords=[],
-        passive_ratio=0.0,
+        keywords=extract_keywords(text),
+        passive_ratio=passive_ratio(text),
     )
 
 
