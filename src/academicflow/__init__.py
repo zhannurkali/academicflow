@@ -10,7 +10,7 @@ Quick start in a notebook::
 
 from __future__ import annotations
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 from academicflow.cite import Bibliography, check_integrity, find_citations, render
 from academicflow.core import analyze
