@@ -921,8 +921,11 @@ highlighting.</p>
   in the irregular list. Passive detection with spaCy is more accurate but optional.</li>
 <li><strong>Keywords:</strong> there is no part-of-speech tagging, so verbs can appear inside key
   phrases ("improves translation"). Single words that occur once score low.</li>
+<li><strong>Long phrases:</strong> phrases longer than 3 words are cut into chunks, so a term like
+  "optional large language model" can appear as "optional large language".</li>
 <li><strong>Sentences:</strong> a single capital letter followed by a dot is treated as an initial
   (<code>J. Smith</code>), so <code>Plan B. We ...</code> is not split.</li>
+<li><strong>Headings:</strong> Markdown heading lines count as one sentence each.</li>
 <li><strong>Syllables:</strong> a heuristic, not a dictionary. Rare words can be off by one, which moves
   the readability scores slightly.</li>
 <li><strong>English only.</strong></li>
