@@ -4,6 +4,7 @@ import pytest
 
 from academicflow.core import analyze, split_sentences, tokenize
 from academicflow.core.keywords import extract_keywords
+from academicflow.core.passive import detect_passive, passive_ratio
 from academicflow.core.readability import basic_counts, count_syllables, readability
 from academicflow.core.text import strip_markdown
 from academicflow.types import TextStats
@@ -213,3 +214,50 @@ def test_extract_keywords_empty_and_stopwords_only() -> None:
     assert extract_keywords("") == []
     assert extract_keywords("The of and.") == []
     assert extract_keywords("3.14 7") == []
+
+
+@pytest.fixture(autouse=True)
+def no_spacy(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Force the heuristic detector so results do not depend on an installed spaCy."""
+    monkeypatch.setattr("academicflow.core.passive._load_spacy", lambda: None)
+
+
+def _passive_phrases(text: str) -> list[str]:
+    return [text[i.start : i.end] for i in detect_passive(text)]
+
+
+def test_detect_passive_true_positives() -> None:
+    assert _passive_phrases("The samples were analysed.") == ["were analysed"]
+    assert _passive_phrases("It has been shown that this works.") == ["has been shown"]
+    assert _passive_phrases("The method will be tested later.") == ["will be tested"]
+    assert _passive_phrases("The data were carefully checked.") == ["were carefully checked"]
+
+
+def test_detect_passive_true_negatives() -> None:
+    assert detect_passive("We analysed the samples.") == []
+    assert detect_passive("The results are clear and we are here.") == []
+
+
+def test_detect_passive_issue_fields() -> None:
+    issue = detect_passive("The samples were analysed.")[0]
+    assert issue.rule == "passive-voice"
+    assert issue.severity == "info"
+    assert issue.message == 'Passive voice: "were analysed".'
+    assert issue.suggestion == "Consider active voice if the agent is important."
+    assert (issue.start, issue.end) == (12, 25)
+
+
+def test_detect_passive_empty() -> None:
+    assert detect_passive("") == []
+    assert passive_ratio("") == 0.0
+
+
+def test_passive_ratio() -> None:
+    assert passive_ratio("The samples were analysed. We tested them.") == pytest.approx(0.5)
+    assert passive_ratio("The data were collected and were analysed.") == pytest.approx(1.0)
+
+
+def test_analyze_uses_keywords_and_passive() -> None:
+    stats = analyze("The samples were analysed. Deep learning is useful. Deep learning is fast.")
+    assert stats.keywords[0][0] == "deep learning"
+    assert stats.passive_ratio == pytest.approx(1 / 3)
