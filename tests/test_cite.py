@@ -177,3 +177,136 @@ def test_to_latex():
         "\\textit{Journal of AI Research}, \\textit{12}(3). https://doi.org/10.1/x\\_1 "
         "\\& \\textbf{bold} 50\\%"
     )
+
+
+def paper(**kw):
+    base = make(
+        type="inproceedings",
+        title="Neural Citation Parsing",
+        year="2021",
+        journal="",
+        volume="",
+        number="",
+        pages="45\u201352",
+        booktitle="Proceedings of the Writing Tools Workshop",
+        publisher="ACL",
+        doi="10.1000/abc",
+    )
+    base.update(kw)
+    return base
+
+
+def book(**kw):
+    base = make(
+        type="book",
+        authors=[("Kim", "Lee")],
+        title="Writing Science",
+        year="2019",
+        journal="",
+        volume="",
+        number="",
+        pages="",
+        publisher="Oxford University Press",
+        doi="",
+    )
+    base.update(kw)
+    return base
+
+
+def web(**kw):
+    base = make(
+        type="misc",
+        authors=[],
+        title="Citation Style Guide",
+        year="2022",
+        journal="",
+        volume="",
+        number="",
+        pages="",
+        publisher="Example University",
+        doi="",
+        url="https://example.org/guide",
+    )
+    base.update(kw)
+    return base
+
+
+def test_apa_inproceedings():
+    assert format_reference(paper(), "apa") == (
+        "Smith, J. A., & Müller, H. (2021). Neural citation parsing. "
+        "In *Proceedings of the Writing Tools Workshop* (pp. 45\u201352). ACL. "
+        "https://doi.org/10.1000/abc"
+    )
+
+
+def test_ieee_inproceedings():
+    assert format_reference(paper(), "ieee") == (
+        'J. A. Smith and H. Müller, "Neural Citation Parsing," '
+        "in *Proceedings of the Writing Tools Workshop*, 2021, pp. 45\u201352, "
+        "doi: 10.1000/abc."
+    )
+
+
+def test_nature_inproceedings():
+    assert format_reference(paper(), "nature") == (
+        "Smith, J. A. & Müller, H. Neural citation parsing. "
+        "in *Proceedings of the Writing Tools Workshop* 45\u201352 (ACL, 2021)."
+    )
+
+
+def test_conference_is_alias_of_inproceedings():
+    assert format_reference(paper(type="conference"), "apa") == format_reference(paper(), "apa")
+
+
+def test_inproceedings_single_page_and_missing_fields():
+    assert "(p. 7)." in format_reference(paper(pages="7"), "apa")
+    out = format_reference(paper(booktitle="", pages="", publisher="", doi=""), "apa")
+    assert out == "Smith, J. A., & Müller, H. (2021). Neural citation parsing."
+
+
+def test_apa_book():
+    assert format_reference(book(), "apa") == (
+        "Lee, K. (2019). *Writing science*. Oxford University Press."
+    )
+
+
+def test_ieee_book():
+    assert format_reference(book(), "ieee") == (
+        "K. Lee, *Writing Science*. Oxford University Press, 2019."
+    )
+
+
+def test_nature_book():
+    assert format_reference(book(), "nature") == (
+        "Lee, K. *Writing Science* (Oxford University Press, 2019)."
+    )
+
+
+def test_book_with_doi_and_no_publisher():
+    assert format_reference(book(publisher="", doi="10.1/b"), "apa").endswith(
+        "*Writing science*. https://doi.org/10.1/b"
+    )
+
+
+def test_apa_misc_without_authors():
+    assert format_reference(web(), "apa") == (
+        "*Citation style guide*. (2022). Example University. https://example.org/guide"
+    )
+
+
+def test_ieee_misc_online():
+    assert format_reference(web(), "ieee") == (
+        '"Citation Style Guide," Example University, 2022. [Online]. '
+        "Available: https://example.org/guide"
+    )
+
+
+def test_nature_misc():
+    assert format_reference(web(), "nature") == (
+        "Citation style guide. Example University https://example.org/guide (2022)."
+    )
+
+
+def test_unsupported_type_uses_article_layout():
+    thesis = web(type="phdthesis", publisher="MIT", url="")
+    assert "MIT" in format_reference(thesis, "ieee")
