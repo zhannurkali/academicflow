@@ -318,10 +318,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#motivation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Motivation
       
     </span>
   </a>
@@ -329,10 +329,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-it-differs-from-existing-tools" class="md-nav__link">
+  <a href="#what-it-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it differs from existing tools
+        What it does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#innovation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Innovation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to go next
       
     </span>
   </a>
@@ -380,6 +413,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -394,10 +454,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -415,8 +475,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -628,10 +688,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#motivation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Motivation
       
     </span>
   </a>
@@ -639,10 +699,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-it-differs-from-existing-tools" class="md-nav__link">
+  <a href="#what-it-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it differs from existing tools
+        What it does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#innovation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Innovation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to go next
       
     </span>
   </a>
@@ -673,48 +766,100 @@
 <p><strong>Write, check, cite and export scientific papers without leaving Jupyter.</strong></p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>academicflow
 </code></pre></div>
-<h2 id="features">Features</h2>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">academicflow</span>
+<span class="o">%</span><span class="n">acite</span> <span class="n">refs</span><span class="o">.</span><span class="n">bib</span>
+</code></pre></div>
+<h2 id="motivation">Motivation</h2>
+<p>Many students and researchers already do their analysis in Jupyter notebooks, but writing
+the paper still happens elsewhere. A typical workflow uses four tools: the notebook for
+results, a grammar checker for each section, a reference manager for citations, and Word
+or LaTeX for the final format. Text is copied between them by hand, and the common
+problems of academic writing slip through:</p>
 <ul>
-<li><strong>Text analysis</strong>: word count, reading time, readability grade, keywords, passive voice.</li>
-<li><strong>Style checker</strong>: informal language, repeated phrases, and section-aware rules such as tense in Methods and abstract length.</li>
-<li><strong>Terminology consistency</strong>: catches "data set" vs "dataset" and undefined acronyms across the whole paper.</li>
-<li><strong>Venue profiles</strong>: <code>apa</code>, <code>ieee</code> and <code>nature</code> presets control citation format, word limits and style rules together.</li>
-<li><strong>Citations</strong>: load a <code>.bib</code> file, write <code>[@key]</code>, and get APA, IEEE or Nature formatting, plus checks for missing keys and duplicate DOIs.</li>
-<li><strong>Abstract generator</strong>: extractive by default, with an optional LLM backend.</li>
-<li><strong>Export</strong>: one command to <code>.docx</code> or <code>.tex</code>, with references already formatted.</li>
+<li>the same term written three ways across sections (<em>data set</em>, <em>dataset</em>, <em>data-set</em>)</li>
+<li>acronyms used before they are defined, or defined twice</li>
+<li>present tense in the Methods section, or an abstract over the journal's word limit</li>
+<li>a typo in a citation key that only shows up as "[?]" in the final PDF</li>
+<li>references reformatted by hand when the paper moves from one journal to another</li>
 </ul>
-<h2 id="how-it-differs-from-existing-tools">How it differs from existing tools</h2>
+<p>academicflow brings writing, checking, citing and exporting into the notebook, so the
+paper lives next to the analysis it describes.</p>
+<h2 id="what-it-does">What it does</h2>
+<ul>
+<li><strong>Text analysis</strong>: word count, reading time, Flesch reading ease and grade level,
+  keywords and passive voice.</li>
+<li><strong>Style checker</strong>: informal words, contractions, long sentences, repeated words and
+  phrases, and rules that depend on the section, such as tense in Methods and the
+  abstract word limit.</li>
+<li><strong>Terminology and acronyms across the whole paper</strong>: inconsistent spellings of a term
+  and acronym problems, found by comparing all sections.</li>
+<li><strong>Venue profiles</strong>: <code>apa</code>, <code>ieee</code> and <code>nature</code> presets set the citation style, word
+  limits and style rules together. Custom profiles are plain YAML files.</li>
+<li><strong>Citations</strong>: write <code>[@key]</code>, load a <code>.bib</code> file, and get APA, IEEE or Nature
+  formatting, plus checks for missing keys, unused and duplicate entries.</li>
+<li><strong>Abstract generator</strong>: TextRank picks the most central sentences of each section;
+  an optional LLM backend (OpenAI or a local Ollama model) can write one instead.</li>
+<li><strong>Export</strong>: one command to Word (<code>.docx</code>) or LaTeX (<code>.tex</code>), with citations and the
+  reference list already formatted.</li>
+</ul>
+<p>Everything runs offline after <code>pip install</code>. No API key and no model download is needed.</p>
+<h2 id="innovation">Innovation</h2>
+<p>Each part has a library already. What they don't do is understand the structure of a
+paper: which section a sentence is in, whether a term is spelled the same way in every
+section, or what a particular journal expects.</p>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
-<th>Does</th>
-<th>academicflow adds</th>
+<th>Existing tool</th>
+<th>What it does</th>
+<th>What academicflow adds</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>textstat</td>
-<td>Readability scores</td>
-<td>Section-aware rules, notebook integration</td>
+<td>readability scores for one text</td>
+<td>statistics per section and for the whole paper, inside the notebook</td>
 </tr>
 <tr>
-<td>proselint</td>
-<td>Generic prose linting</td>
-<td>Academic and venue-specific rules, cross-section terminology</td>
+<td>proselint, LanguageTool</td>
+<td>generic style and grammar checks on one text</td>
+<td>academic rules that depend on the section and the venue, and checks <strong>across</strong> sections (terminology, acronyms)</td>
 </tr>
 <tr>
-<td>pybtex</td>
-<td>BibTeX parsing</td>
-<td>Inline citation rendering in notebooks, integrity checks</td>
+<td>pybtex, citeproc</td>
+<td>parse BibTeX, format references</td>
+<td><code>[@key]</code> citations rendered live in notebook cells, and integrity checks (typos with "did you mean", unused and duplicate entries)</td>
 </tr>
 <tr>
-<td>nbconvert</td>
-<td>Notebook conversion</td>
-<td>Paper-structured export with formatted references</td>
+<td>nbconvert, pandoc</td>
+<td>convert a whole notebook</td>
+<td>export only the paper's sections, in order, with an abstract and a formatted reference list</td>
 </tr>
 </tbody>
 </table>
+<p>The reusable pieces are the <strong>venue profiles</strong> (one YAML file sets citation style, word
+limits and style rules) and the <strong>document-level checks</strong> that look at all sections
+together.</p>
+<h2 id="example-use-cases">Example use cases</h2>
+<p>See <a href="use-cases/">Use cases</a> for step-by-step examples:</p>
+<ol>
+<li><strong>Checking a thesis chapter before submission</strong>: find terminology, acronym and tense
+   problems across all sections at once.</li>
+<li><strong>Moving a paper to another journal</strong>: switch from IEEE to Nature with one flag.</li>
+<li><strong>A group project report</strong>: keep five authors' terminology and citations consistent.</li>
+<li><strong>From analysis notebook to Word draft</strong>: write the paper next to the code and export
+   it with formatted references.</li>
+</ol>
+<h2 id="where-to-go-next">Where to go next</h2>
+<ul>
+<li><a href="getting-started/">Getting started</a>: install and a five-minute tour</li>
+<li>Module guides: <a href="core/">text analysis</a>, <a href="style/">style checker</a>,
+  <a href="cite/">citations</a>, <a href="summarize/">abstract generator</a>, <a href="magics/">Jupyter magics</a>,
+  <a href="export/">export</a></li>
+<li>Example notebooks: <a href="https://github.com/zhannurkali/academicflow/tree/main/examples"><code>examples/</code></a>
+  in the repository</li>
+</ul>
 
 
 

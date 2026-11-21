@@ -311,6 +311,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -329,10 +356,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -350,8 +377,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -433,6 +460,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Citations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -449,6 +494,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-a-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In a notebook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation syntax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-styles-side-by-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three styles side by side
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrity-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrity checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -566,6 +696,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-a-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In a notebook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation syntax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-styles-side-by-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three styles side by side
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrity-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrity checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -585,7 +789,173 @@
 
 
 <h1 id="citations-academicflowcite">Citations (<code>academicflow.cite</code>)</h1>
-<p><em>Owner: Member 3. TODO: citation syntax, APA/IEEE/Nature examples side by side, integrity checks.</em></p>
+<p>Load a BibTeX file, cite with <code>[@key]</code> while you write, and get correctly formatted
+citations and a reference list in <strong>APA 7</strong>, <strong>IEEE</strong> or <strong>Nature</strong> style. Citations are
+also checked: a typo in a key, an entry you never cite, two entries for the same paper or
+an entry with missing fields are all reported.</p>
+<h2 id="in-a-notebook">In a notebook</h2>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">academicflow</span>
+<span class="o">%</span><span class="n">acite</span> <span class="n">refs</span><span class="o">.</span><span class="n">bib</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">academic</span> <span class="o">--</span><span class="n">style</span><span class="o">=</span><span class="n">apa</span> <span class="o">--</span><span class="n">section</span><span class="o">=</span><span class="n">introduction</span>
+<span class="n">Deep</span> <span class="n">learning</span> <span class="p">[</span><span class="nd">@lecun2015</span><span class="p">]</span> <span class="n">builds</span> <span class="n">on</span> <span class="n">attention</span> <span class="p">[</span><span class="nd">@vaswani2017</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span> <span class="mi">5</span><span class="p">;</span> <span class="nd">@lecun2015</span><span class="p">]</span><span class="o">.</span>
+</code></pre></div>
+<p>The cell is shown with formatted citations and its reference list. Change <code>--style</code> to
+<code>ieee</code> or <code>nature</code> and everything is reformatted. <code>%acheck</code> runs the integrity checks on
+the whole paper.</p>
+<h2 id="citation-syntax">Citation syntax</h2>
+<p>The syntax is the same as pandoc's, so the text also works with other Markdown tools.</p>
+<table>
+<thead>
+<tr>
+<th>Write</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[@lecun2015]</code></td>
+<td>one source</td>
+</tr>
+<tr>
+<td><code>[@lecun2015; @vaswani2017]</code></td>
+<td>several sources</td>
+</tr>
+<tr>
+<td><code>[@vaswani2017, p. 5]</code></td>
+<td>a source with a page or other locator</td>
+</tr>
+</tbody>
+</table>
+<p>A key that is not in the bibliography never stops rendering. It is shown as
+<code>[@key?]</code>, and <code>check_integrity</code> reports it.</p>
+<h2 id="the-three-styles-side-by-side">The three styles side by side</h2>
+<p>Input: <code>Deep learning [@lecun2015] builds on attention [@vaswani2017, p. 5; @lecun2015].</code></p>
+<table>
+<thead>
+<tr>
+<th>Style</th>
+<th>Inline citations</th>
+<th>Reference list</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APA</td>
+<td>Deep learning (LeCun et al., 2015) builds on attention (LeCun et al., 2015; Vaswani et al., 2017, p. 5).</td>
+<td>alphabetical, no numbers</td>
+</tr>
+<tr>
+<td>IEEE</td>
+<td>Deep learning [1] builds on attention [1], [2, p. 5].</td>
+<td><code>[1]</code>, <code>[2]</code>, in order of first citation</td>
+</tr>
+<tr>
+<td>Nature</td>
+<td>Deep learning<sup>1</sup> builds on attention<sup>1,2</sup>.</td>
+<td><code>1.</code>, <code>2.</code>, in order of first citation</td>
+</tr>
+</tbody>
+</table>
+<p>The reference for <code>lecun2015</code> in each style:</p>
+<ul>
+<li><strong>APA:</strong> LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015). Deep learning. <em>Nature</em>, <em>521</em>(7553), 436–444. https://doi.org/10.1038/nature14539</li>
+<li><strong>IEEE:</strong> [1] Y. LeCun, Y. Bengio, and G. Hinton, "Deep Learning," <em>Nature</em>, vol. 521, no. 7553, pp. 436–444, 2015, doi: 10.1038/nature14539.</li>
+<li><strong>Nature:</strong> 1. LeCun, Y., Bengio, Y. &amp; Hinton, G. Deep learning. <em>Nature</em> <strong>521</strong>, 436–444 (2015).</li>
+</ul>
+<p>Supported entry types: <code>article</code>, <code>inproceedings</code> (and <code>conference</code>), <code>book</code> and <code>misc</code>
+(for example web pages). Other types fall back to the article layout.</p>
+<h2 id="from-python">From Python</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">academicflow.cite</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bibliography</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">find_citations</span><span class="p">,</span> <span class="n">check_integrity</span>
+
+<span class="n">bib</span> <span class="o">=</span> <span class="n">Bibliography</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">"refs.bib"</span><span class="p">)</span>      <span class="c1"># or Bibliography.from_string(text)</span>
+<span class="n">bib</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>                                    <span class="c1"># ['vaswani2017', 'lecun2015']</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"Deep learning [@lecun2015] builds on attention [@vaswani2017, p. 5]."</span>
+<span class="n">new_text</span><span class="p">,</span> <span class="n">references</span> <span class="o">=</span> <span class="n">render</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">bib</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"ieee"</span><span class="p">)</span>
+<span class="c1"># new_text   -&gt; 'Deep learning [1] builds on attention [2, p. 5].'</span>
+<span class="c1"># references -&gt; ['[1] Y. LeCun, ...', '[2] A. Vaswani et al., ...']</span>
+
+<span class="n">find_citations</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>                          <span class="c1"># [('lecun2015', 16, 25), ('vaswani2017', 49, 60)]</span>
+</code></pre></div>
+<p><code>render(text, bib, style, target)</code> returns the text with citations replaced and the
+reference list as Markdown strings. <code>target</code> changes only how Nature superscripts are
+written:</p>
+<table>
+<thead>
+<tr>
+<th><code>target</code></th>
+<th>Nature superscript</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"markdown"</code> (default)</td>
+<td><code>&lt;sup&gt;1&lt;/sup&gt;</code></td>
+<td>notebook display</td>
+</tr>
+<tr>
+<td><code>"pandoc"</code></td>
+<td><code>^1^</code></td>
+<td>Word export</td>
+</tr>
+<tr>
+<td><code>"latex"</code></td>
+<td><code>\textsuperscript{1}</code></td>
+<td>LaTeX export</td>
+</tr>
+</tbody>
+</table>
+<h2 id="integrity-checks">Integrity checks</h2>
+<p><code>check_integrity(text, bib)</code> compares the citations in the whole document with the
+bibliography. Pass it the full text of all sections, not one section, or every entry
+looks unused.</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Severity</th>
+<th>Finds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cite-missing-key</code></td>
+<td>error</td>
+<td>a cited key that is not in the <code>.bib</code> file, with a "did you mean" suggestion</td>
+</tr>
+<tr>
+<td><code>cite-unused</code></td>
+<td>info</td>
+<td>an entry in the <code>.bib</code> file that is never cited</td>
+</tr>
+<tr>
+<td><code>cite-duplicate-doi</code></td>
+<td>warning</td>
+<td>two entries with the same DOI or the same title</td>
+</tr>
+<tr>
+<td><code>cite-incomplete</code></td>
+<td>warning</td>
+<td>an entry missing fields its type needs, such as an article without a journal</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">check_integrity</span><span class="p">(</span><span class="s2">"[@vaswani2071] and [@lecun2015]"</span><span class="p">,</span> <span class="n">bib</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">issue</span><span class="o">.</span><span class="n">severity</span><span class="p">,</span> <span class="n">issue</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+<span class="c1"># error  Cited key 'vaswani2071' is not in the bibliography. Did you mean 'vaswani2017'?</span>
+<span class="c1"># info   'vaswani2017' is in the bibliography but never cited.</span>
+</code></pre></div>
+<h2 id="known-limitations">Known limitations</h2>
+<ul>
+<li>Formatting covers the most common entry types and fields. Unusual BibTeX fields are
+  ignored.</li>
+<li>APA titles are converted to sentence case automatically. Proper nouns inside a Title Case
+  title (for example "Python") are lowercased, because BibTeX braces that protect them are
+  removed when the file is parsed.</li>
+</ul>
 
 
 
