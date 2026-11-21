@@ -112,5 +112,14 @@ reset_session()       # start a new paper
 
 ## Screenshots
 
-Add screenshots of `%%academic` output, `%astats` and `%acheck` here after the Day 3 demo run
-(`docs/img/`).
+### `%%academic`: formatted citations and style issues
+
+![%%academic output](img/academic.png)
+
+### `%astats`: statistics, keywords and passive voice
+
+![%astats output](img/astats.png)
+
+### `%acheck`: issues grouped by section
+
+![%acheck output](img/acheck.png)

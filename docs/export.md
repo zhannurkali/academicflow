@@ -73,3 +73,9 @@ The notebook is read like this:
   New Roman. Journal-specific templates need a custom `reference.docx`.
 - Figures and tables in cells are passed through pandoc but are not specially numbered.
 - The python-docx fallback supports bold, italic and superscripts only.
+
+## Example
+
+The exported Word file:
+
+![Exported DOCX](img/docx.png)
