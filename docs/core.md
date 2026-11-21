@@ -105,8 +105,11 @@ Every function accepts an empty string and returns zeros or an empty list.
   in the irregular list. Passive detection with spaCy is more accurate but optional.
 - **Keywords:** there is no part-of-speech tagging, so verbs can appear inside key
   phrases ("improves translation"). Single words that occur once score low.
+- **Long phrases:** phrases longer than 3 words are cut into chunks, so a term like
+  "optional large language model" can appear as "optional large language".
 - **Sentences:** a single capital letter followed by a dot is treated as an initial
   (`J. Smith`), so `Plan B. We ...` is not split.
+- **Headings:** Markdown heading lines count as one sentence each.
 - **Syllables:** a heuristic, not a dictionary. Rare words can be off by one, which moves
   the readability scores slightly.
 - **English only.**
