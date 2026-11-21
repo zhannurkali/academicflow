@@ -9,7 +9,7 @@ An academic-writing pipeline for Jupyter notebooks: text analysis, section-aware
 terminology consistency, BibTeX citations in APA / IEEE / Nature style, abstract generation,
 and one-command export to Word or LaTeX.
 
-> Status: beta (0.2.0). APIs may change before 1.0.
+> Status: stable (1.0.0).
 
 ## Install
 

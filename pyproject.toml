@@ -19,7 +19,7 @@ authors = [
 ]
 keywords = ["jupyter", "academic-writing", "latex", "bibtex", "citations", "nlp", "readability"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 5 - Production/Stable",
     "Framework :: Jupyter",
     "Framework :: IPython",
     "Intended Audience :: Science/Research",
