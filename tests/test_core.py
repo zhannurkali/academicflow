@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 
 from academicflow.core import analyze, split_sentences, tokenize
+from academicflow.core.keywords import extract_keywords
 from academicflow.core.readability import basic_counts, count_syllables, readability
 from academicflow.core.text import strip_markdown
 from academicflow.types import TextStats
@@ -188,3 +189,27 @@ def test_analyze_empty_text() -> None:
     assert stats.reading_time_min == 0.0
     assert stats.keywords == []
     assert stats.passive_ratio == 0.0
+
+
+_KW_TEXT = "Deep learning is a method. Deep learning is useful for translation."
+
+
+def test_extract_keywords_best_phrase() -> None:
+    result = extract_keywords(_KW_TEXT, top_n=3)
+    assert result[0] == ("deep learning", 1.0)
+    assert all(0.0 <= score <= 1.0 for _, score in result)
+
+
+def test_extract_keywords_deterministic() -> None:
+    assert extract_keywords(_KW_TEXT) == extract_keywords(_KW_TEXT)
+
+
+def test_extract_keywords_top_n() -> None:
+    assert len(extract_keywords(_KW_TEXT, top_n=2)) == 2
+    assert extract_keywords(_KW_TEXT, top_n=0) == []
+
+
+def test_extract_keywords_empty_and_stopwords_only() -> None:
+    assert extract_keywords("") == []
+    assert extract_keywords("The of and.") == []
+    assert extract_keywords("3.14 7") == []
