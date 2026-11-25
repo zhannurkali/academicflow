@@ -11,6 +11,12 @@ pip install academicflow
 %acite refs.bib
 ```
 
+## Demo
+
+<video src="assets/academicflow_30s.mp4" controls muted playsinline width="100%"></video>
+
+A longer [60-second version](assets/academicflow_60s.mp4) is also available.
+
 ## Motivation
 
 Many students and researchers already do their analysis in Jupyter notebooks, but writing

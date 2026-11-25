@@ -11,6 +11,10 @@ and one-command export to Word or LaTeX.
 
 > Status: stable (1.0.1).
 
+## Demo
+
+[▶ Watch the 30-second demo](https://zhannurkali.github.io/academicflow/assets/academicflow_30s.mp4) · [60-second version](https://zhannurkali.github.io/academicflow/assets/academicflow_60s.mp4) · [try the demo notebook](examples/03_one_minute_demo.ipynb)
+
 ## Why
 
 Students and researchers analyse data in Jupyter, but write the paper somewhere else:
